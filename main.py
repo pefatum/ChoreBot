@@ -23,11 +23,10 @@ async def on_message(message):
         random.shuffle(real_members)
         member_cycle = cycle(real_members)
         chores = open("chores.txt").readlines()
+        random.shuffle(chores)
 
         for chore in chores:
             member = next(member_cycle)
             await message.channel.send(member.name + ' please ' + chore)
-
-
 
 client.run(os.getenv('TOKEN'))
